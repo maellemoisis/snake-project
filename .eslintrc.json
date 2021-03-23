@@ -1,0 +1,40 @@
+{
+  "plugins": ["babel", "jest"],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 11,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "jest/globals": true
+  },
+  "globals": {
+    "fetchMock": "readonly"
+  },
+  "extends": ["airbnb", "plugin:jest/recommended", "plugin:jest/style"],
+  "rules": {
+    "no-console": ["error", {
+      "allow": ["warn", "error"]
+    }],
+    "no-underscore-dangle": "off",
+    "no-restricted-syntax": ["error", {
+      "selector": "ForInStatement",
+      "message": "for..in loops iterate over the entire prototype chain, which is virtually never what you want."
+    }, {
+      "selector": "LabeledStatement",
+      "message": "Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand."
+    }, {
+      "selector": "WithStatement",
+      "message": "`with` is disallowed in strict mode because it makes code impossible to predict and optimize."
+    }],
+    "jsx-a11y/label-has-associated-control": ["error", {
+      "assert": "either",
+      "depth": 4
+    }],
+    "react/static-property-placement": ["warn", "static public field"]
+  }
+}
